@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AelimorSheetCreator.BC", "AelimorSheetCreator.BC\AelimorSheetCreator.BC.csproj", "{9C5730EE-F5CE-48C0-96E3-2A8D3DF476CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AelimorSheetCreator.Data", "AelimorSheetCreator.Data\AelimorSheetCreator.Data.csproj", "{E8186074-C1DA-49E7-9286-0810C32D02DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AelimorSheetCreator.Models", "AelimorSheetCreator.Models\AelimorSheetCreator.Models.csproj", "{7DF56831-2E19-430F-9AD2-2DBBE5BCA2B1}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AelimorSheetCreator.Database", "AelimorSheetCreator.Database\AelimorSheetCreator.Database.sqlproj", "{1A327725-BAE4-4925-946D-7B6518A10F53}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AelimorSheetCreator.WebApi", "AelimorSheetCreator.WebApi\AelimorSheetCreator.WebApi.csproj", "{11837804-5477-493C-9C24-E52CE2E76EA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C5730EE-F5CE-48C0-96E3-2A8D3DF476CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C5730EE-F5CE-48C0-96E3-2A8D3DF476CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C5730EE-F5CE-48C0-96E3-2A8D3DF476CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C5730EE-F5CE-48C0-96E3-2A8D3DF476CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8186074-C1DA-49E7-9286-0810C32D02DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8186074-C1DA-49E7-9286-0810C32D02DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8186074-C1DA-49E7-9286-0810C32D02DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8186074-C1DA-49E7-9286-0810C32D02DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF56831-2E19-430F-9AD2-2DBBE5BCA2B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF56831-2E19-430F-9AD2-2DBBE5BCA2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF56831-2E19-430F-9AD2-2DBBE5BCA2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF56831-2E19-430F-9AD2-2DBBE5BCA2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A327725-BAE4-4925-946D-7B6518A10F53}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{11837804-5477-493C-9C24-E52CE2E76EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11837804-5477-493C-9C24-E52CE2E76EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11837804-5477-493C-9C24-E52CE2E76EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11837804-5477-493C-9C24-E52CE2E76EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFD0956D-EA9D-41FD-98D5-14497D3049BA}
+	EndGlobalSection
+EndGlobal
