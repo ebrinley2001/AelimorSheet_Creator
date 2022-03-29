@@ -45,7 +45,7 @@ namespace AelimorSheetCreator.WebApi.Controllers
             if (oldClass != null)
             {
                 oldClass.ClassName = newClass.ClassName;
-                oldClass.Stamina = newClass.Stamina;
+                oldClass.BaseStamina = newClass.BaseStamina;
                 oldClass.WeaponProf = newClass.WeaponProf;
 
                 await _classBc.UpdateAsync(oldClass);

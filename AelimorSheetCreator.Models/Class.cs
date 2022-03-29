@@ -10,7 +10,7 @@ namespace AelimorSheetCreator.Models
         public int ClassId { get; set; }
         [Required]
         public string ClassName { get; set; }
-        public int Stamina { get; set; }
+        public int BaseStamina { get; set; }
         public string WeaponProf { get; set; }
     }
 }
