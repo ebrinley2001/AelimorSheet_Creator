@@ -13,6 +13,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AelimorSheetCreator.Databas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AelimorSheetCreator.WebApi", "AelimorSheetCreator.WebApi\AelimorSheetCreator.WebApi.csproj", "{11837804-5477-493C-9C24-E52CE2E76EA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AelimorSheetCreator.Sdk", "AelimorSheetCreator.Sdk\AelimorSheetCreator.Sdk.csproj", "{740DC323-65F1-46D7-AC8C-A72E2C1809C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{11837804-5477-493C-9C24-E52CE2E76EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11837804-5477-493C-9C24-E52CE2E76EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11837804-5477-493C-9C24-E52CE2E76EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{740DC323-65F1-46D7-AC8C-A72E2C1809C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{740DC323-65F1-46D7-AC8C-A72E2C1809C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{740DC323-65F1-46D7-AC8C-A72E2C1809C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{740DC323-65F1-46D7-AC8C-A72E2C1809C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
