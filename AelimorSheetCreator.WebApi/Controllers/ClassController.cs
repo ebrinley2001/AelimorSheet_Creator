@@ -31,20 +31,32 @@ namespace AelimorSheetCreator.WebApi.Controllers
 
         // POST api/<ClassController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task Post([FromBody] Class newClass)
         {
+            await _classBc.CreateAsync(newClass);
         }
 
         // PUT api/<ClassController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task Put(int id, [FromBody] Class newClass)
         {
+            Class oldClass = await _classBc.GetByIdAsync(id);
+
+            if (oldClass != null)
+            {
+                oldClass.ClassName = newClass.ClassName;
+                oldClass.Stamina = newClass.Stamina;
+                oldClass.WeaponProf = newClass.WeaponProf;
+
+                await _classBc.UpdateAsync(oldClass);
+            }
         }
 
         // DELETE api/<ClassController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
+            await _classBc.DeleteByIdAsync(id);
         }
     }
 }

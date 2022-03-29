@@ -21,5 +21,19 @@ namespace AelimorSheetCreator.BC.BuisinessComponents
         {
             return _repo.GetByIdAsync(id);
         }
+        public Task DeleteByIdAsync(int id)
+        {
+            return _repo.DeleteByIdAsync(id);
+        }
+
+        public Task CreateAsync(TModel entity)
+        {
+            return _repo.CreateAsync(entity);
+        }
+
+        public Task UpdateAsync(TModel entity)
+        {
+            return _repo.UpdateAsync(entity);
+        }
     }
 }
