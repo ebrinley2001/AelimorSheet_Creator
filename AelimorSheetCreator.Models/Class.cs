@@ -13,5 +13,7 @@ namespace AelimorSheetCreator.Models
         public int BaseStamina { get; set; }
         public string WeaponProf { get; set; }
         public string Description { get; set; }
+        [Required]
+        public bool Profession { get; set; }
     }
 }
