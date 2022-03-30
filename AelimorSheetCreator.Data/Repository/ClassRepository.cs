@@ -2,7 +2,7 @@
 
 namespace AelimorSheetCreator.Data.Repository
 {
-    public class ClassRepository : BaseEfRepository<Class>, IClassRepository
+    public class ClassRepository : BaseEfRepository<Class, AelimorContext>, IClassRepository
     {
         public ClassRepository(AelimorContext context) : base(context)
         {

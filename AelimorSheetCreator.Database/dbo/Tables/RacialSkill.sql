@@ -5,6 +5,7 @@
     [Limit]           VARCHAR (15) NULL,
     [XpCost]          INT          NULL,
     [RaceId]          INT          NULL,
+    [Description] VARCHAR(500) NULL, 
     PRIMARY KEY CLUSTERED ([RacialSkillId] ASC),
     FOREIGN KEY ([RaceId]) REFERENCES [dbo].[Race] ([RaceId])
 );

@@ -8,6 +8,7 @@ namespace AelimorSheetCreator.Models
     {
         [Key]
         public int SkillId { get; set; }
+        [Required]
         public string SkillName { get; set; }
         public int XpCost { get; set; }
         public string StaminaCost { get; set; }
@@ -16,12 +17,9 @@ namespace AelimorSheetCreator.Models
         public bool CombatSkill { get; set; }
         public int ClassId { get; set; }
         public int AttributeId { get; set; }
+        public string Description { get; set; }
 
-        public virtual string ClassName { get; set; }
-        public virtual int BaseStamina { get; set; }
-        public virtual string WeaponProf { get; set; }
-
-
-        public virtual string AttributeName { get; set; }
+        public virtual Class Class { get; set; }
+        public virtual Attribute Attribute { get; set; }
     }
 }

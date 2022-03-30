@@ -2,7 +2,7 @@
 
 namespace AelimorSheetCreator.Data.Repository
 {
-    public class AttributeSkillRepository : BaseEfRepository<AttributeSkill>, IAttributeSkillRepository
+    public class AttributeSkillRepository : BaseEfRepository<AttributeSkill, AelimorContext>, IAttributeSkillRepository
     {
         public AttributeSkillRepository(AelimorContext context) : base(context)
         {

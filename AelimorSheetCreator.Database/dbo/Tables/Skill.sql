@@ -8,6 +8,7 @@
     [CombatSkill] BIT          NULL,
     [ClassId]     INT          NULL,
     [AttributeId] INT          NULL,
+    [Description] VARCHAR(500) NULL, 
     PRIMARY KEY CLUSTERED ([SkillId] ASC),
     FOREIGN KEY ([AttributeId]) REFERENCES [dbo].[Attribute] ([AttributeId]),
     FOREIGN KEY ([ClassId]) REFERENCES [dbo].[Class] ([ClassId])

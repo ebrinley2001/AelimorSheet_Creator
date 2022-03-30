@@ -2,7 +2,7 @@
 
 namespace AelimorSheetCreator.Data.Repository
 {
-    public class RacialSkillRepository : BaseEfRepository<RacialSkill>, IRacialSkillRepository
+    public class RacialSkillRepository : BaseEfRepository<RacialSkill, AelimorContext>, IRacialSkillRepository
     {
         public RacialSkillRepository(AelimorContext context) : base(context)
         {

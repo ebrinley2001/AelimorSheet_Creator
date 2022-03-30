@@ -31,14 +31,14 @@ namespace AelimorSheetCreator.WebApi.Controllers
 
         // POST api/<LevelController>
         [HttpPost]
-        public async Task Post([FromBody] Level newLevel)
+        public async Task<int> Post([FromBody] Level newLevel)
         {
-            await _levelBc.CreateAsync(newLevel);
+            return await _levelBc.CreateAsync(newLevel);
         }
 
         // PUT api/<LevelController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] Level newLevel)
+        public async Task<int> Put(int id, [FromBody] Level newLevel)
         {
             Level oldLevel = await _levelBc.GetByIdAsync(id);
 
@@ -51,15 +51,17 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldLevel.AvailAttrib = newLevel.AvailAttrib;
                 oldLevel.AvailRoles = newLevel.AvailRoles;
 
-                await _levelBc.UpdateAsync(oldLevel);
+                return await _levelBc.UpdateAsync(oldLevel);
             }
+            return 0;
         }
 
         // DELETE api/<LevelController>/5
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            await _levelBc.DeleteByIdAsync(id);
+            Level entity = await _levelBc.GetByIdAsync(id);
+            return await _levelBc.DeleteByIdAsync(entity);
         }
     }
 }

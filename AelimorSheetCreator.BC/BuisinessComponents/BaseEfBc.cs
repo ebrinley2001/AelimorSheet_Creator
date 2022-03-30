@@ -1,13 +1,16 @@
 ﻿using AelimorSheetCreator.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.BC.BuisinessComponents
 {
-    public abstract class BaseEfBc<TModel> where TModel : class
+    public abstract class BaseEfBc<TModel, TDbContext>
+        where TModel : class
+        where TDbContext : DbContext
     {
-        private readonly IBaseEfRepository<TModel> _repo;
-        public BaseEfBc(IBaseEfRepository<TModel> repo)
+        private readonly IBaseEfRepository<TModel, TDbContext> _repo;
+        public BaseEfBc(IBaseEfRepository<TModel, TDbContext> repo)
         {
             _repo = repo;
         }
@@ -21,17 +24,17 @@ namespace AelimorSheetCreator.BC.BuisinessComponents
         {
             return _repo.GetByIdAsync(id);
         }
-        public Task DeleteByIdAsync(int id)
+        public Task<int> DeleteByIdAsync(TModel entity)
         {
-            return _repo.DeleteByIdAsync(id);
+            return _repo.DeleteByIdAsync(entity);
         }
 
-        public Task CreateAsync(TModel entity)
+        public Task<int> CreateAsync(TModel entity)
         {
             return _repo.CreateAsync(entity);
         }
 
-        public Task UpdateAsync(TModel entity)
+        public Task<int> UpdateAsync(TModel entity)
         {
             return _repo.UpdateAsync(entity);
         }

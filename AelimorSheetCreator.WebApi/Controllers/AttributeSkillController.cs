@@ -31,14 +31,14 @@ namespace AelimorSheetCreator.WebApi.Controllers
 
         // POST api/<AttributeSkillController>
         [HttpPost]
-        public async Task Post([FromBody] AttributeSkill newAttributeSkill)
+        public async Task<int> Post([FromBody] AttributeSkill newAttributeSkill)
         {
-            await _attributeSkillBc.CreateAsync(newAttributeSkill);
+            return await _attributeSkillBc.CreateAsync(newAttributeSkill);
         }
 
         // PUT api/<AttributeSkillController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] AttributeSkill newAttributeSkill)
+        public async Task<int> Put(int id, [FromBody] AttributeSkill newAttributeSkill)
         {
             AttributeSkill oldAttributeSkill = await _attributeSkillBc.GetByIdAsync(id);
 
@@ -49,15 +49,17 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldAttributeSkill.AttributeId = newAttributeSkill.AttributeId;
                 oldAttributeSkill.StaminaCost = newAttributeSkill.StaminaCost;
 
-                await _attributeSkillBc.UpdateAsync(oldAttributeSkill);
+                return await _attributeSkillBc.UpdateAsync(oldAttributeSkill);
             }
+            return 0;
         }
 
         // DELETE api/<AttributeSkillController>/5
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            await _attributeSkillBc.DeleteByIdAsync(id);
+            AttributeSkill entity = await _attributeSkillBc.GetByIdAsync(id);
+            return await _attributeSkillBc.DeleteByIdAsync(entity);
         }
     }
 }

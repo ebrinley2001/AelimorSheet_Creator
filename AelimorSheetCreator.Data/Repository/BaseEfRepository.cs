@@ -4,11 +4,13 @@ using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.Data.Repository
 {
-    public abstract class BaseEfRepository<TModel> where TModel : class
+    public abstract class BaseEfRepository<TModel, TDbContext> 
+        where TModel : class
+        where TDbContext : DbContext
     {
-        private readonly AelimorContext _context;
+        private readonly TDbContext _context;
 
-        public BaseEfRepository(AelimorContext context)
+        public BaseEfRepository(TDbContext context)
         {
             _context = context;
         }
@@ -23,20 +25,19 @@ namespace AelimorSheetCreator.Data.Repository
             return _context.Set<TModel>().FindAsync(id).AsTask();
         }
 
-        public async Task DeleteByIdAsync(int id)
+        public async Task<int> DeleteByIdAsync(TModel entity)
         {
-            var entity = await GetByIdAsync(id);
             _context.Set<TModel>().Remove(entity);
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
-        public Task CreateAsync(TModel entity)
+        public Task<int> CreateAsync(TModel entity)
         {
               _context.Set<TModel>().AddAsync(entity);
              return _context.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(TModel entity)
+        public Task<int> UpdateAsync(TModel entity)
         {
             _context.Set<TModel>().Update(entity);
             return _context.SaveChangesAsync();

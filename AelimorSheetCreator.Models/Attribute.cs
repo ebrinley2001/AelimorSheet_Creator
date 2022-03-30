@@ -8,6 +8,7 @@ namespace AelimorSheetCreator.Models
     {
         [Key]
         public int AttributeId { get; set; }
+        [Required]
         public string AttributeName { get; set; }
     }
 }

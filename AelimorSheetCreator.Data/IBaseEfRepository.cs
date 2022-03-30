@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.Data
 {
-    public interface IBaseEfRepository<TModel> where TModel : class
+    public interface IBaseEfRepository<TModel, TDbContext> 
+        where TModel : class 
+        where TDbContext : DbContext
     {
         public Task<List<TModel>> GetCollectionAsync();
         public Task<TModel> GetByIdAsync(int id);
-        public Task DeleteByIdAsync(int id);
-        public Task CreateAsync(TModel entity);
-        public Task UpdateAsync(TModel entity);
+        public Task<int> DeleteByIdAsync(TModel entity);
+        public Task<int> CreateAsync(TModel entity);
+        public Task<int> UpdateAsync(TModel entity);
     }
 }

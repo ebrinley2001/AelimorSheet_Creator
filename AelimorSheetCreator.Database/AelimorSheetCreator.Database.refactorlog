@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="07f7d6b9-a5d2-46d7-b417-4fad0ccfad66" ChangeDateTime="03/30/2022 19:45:16">
+    <Property Name="ElementName" Value="[dbo].[Level].[AvalAttrib]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Level]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AvailAttrib" />
+  </Operation>
+</Operations>

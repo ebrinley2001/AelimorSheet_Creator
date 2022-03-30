@@ -8,12 +8,14 @@ namespace AelimorSheetCreator.Models
     {
         [Key]
         public int RacialSkillId { get; set; }
+        [Required]
         public string RacialSkillName { get; set; }
         public int StaminaCost { get; set; }
         public string Limit { get; set; }
         public int XpCost { get; set; }
         public int RaceId { get; set; }
+        public string Description { get; set; }
 
-        public virtual string RaceName { get; set; }
+        public virtual Race Race { get; set; }
     }
 }

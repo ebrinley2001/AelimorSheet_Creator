@@ -4,7 +4,7 @@
     [XpAmount]            INT NOT NULL,
     [BaseHp]              INT NULL,
     [BaseIncreaseStamina] INT NULL,
-    [AvalAttrib]          INT NOT NULL,
+    [AvailAttrib]          INT NOT NULL,
     [AvailRoles]          INT NOT NULL,
     PRIMARY KEY CLUSTERED ([LevelId] ASC)
 );

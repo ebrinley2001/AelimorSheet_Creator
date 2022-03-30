@@ -8,6 +8,7 @@ namespace AelimorSheetCreator.Models
     {
         [Key]
         public int LevelId { get; set; }
+        [Required]
         public int LevelNum { get; set; }
         public int XpAmount { get; set; }
         public int BaseHp { get; set; }

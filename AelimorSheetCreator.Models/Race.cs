@@ -8,6 +8,7 @@ namespace AelimorSheetCreator.Models
     {
         [Key]
         public int RaceId { get; set; }
+        [Required]
         public string RaceName { get; set; }
     }
 }

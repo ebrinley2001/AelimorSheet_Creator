@@ -31,14 +31,14 @@ namespace AelimorSheetCreator.WebApi.Controllers
 
         // POST api/<SkillController>
         [HttpPost]
-        public async Task Post([FromBody] Skill newSkill)
+        public async Task<int> Post([FromBody] Skill newSkill)
         {
-            await _skillBc.CreateAsync(newSkill);
+            return await _skillBc.CreateAsync(newSkill);
         }
 
         // PUT api/<SkillController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] Skill newSkill)
+        public async Task<int> Put(int id, [FromBody] Skill newSkill)
         {
             Skill oldSkill = await _skillBc.GetByIdAsync(id);
 
@@ -53,15 +53,17 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldSkill.ClassId = newSkill.ClassId;
                 oldSkill.AttributeId = newSkill.AttributeId;
 
-                await _skillBc.UpdateAsync(oldSkill);
+                return await _skillBc.UpdateAsync(oldSkill);
             }
+            return 0;
         }
 
         // DELETE api/<SkillController>/5
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            await _skillBc.DeleteByIdAsync(id);
+            Skill entity = await _skillBc.GetByIdAsync(id);
+            return await _skillBc.DeleteByIdAsync(entity);
         }
     }
 }

@@ -31,14 +31,14 @@ namespace AelimorSheetCreator.WebApi.Controllers
 
         // POST api/<RaceController>
         [HttpPost]
-        public async Task Post([FromBody] Race newRace)
+        public async Task<int> Post([FromBody] Race newRace)
         {
-            await _raceBc.CreateAsync(newRace);
+            return await _raceBc.CreateAsync(newRace);
         }
 
         // PUT api/<RaceController>/5
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] Race newRace)
+        public async Task<int> Put(int id, [FromBody] Race newRace)
         {
             Race oldRace = await _raceBc.GetByIdAsync(id);
 
@@ -46,15 +46,17 @@ namespace AelimorSheetCreator.WebApi.Controllers
             {
                 oldRace.RaceName = newRace.RaceName;
 
-                await _raceBc.UpdateAsync(oldRace);
+                return await _raceBc.UpdateAsync(oldRace);
             }
+            return 0;
         }
 
         // DELETE api/<RaceController>/5
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            await _raceBc.DeleteByIdAsync(id);
+            Race entity = await _raceBc.GetByIdAsync(id);
+            return await _raceBc.DeleteByIdAsync(entity);
         }
     }
 }

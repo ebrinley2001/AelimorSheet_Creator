@@ -4,6 +4,7 @@
     [XpCost]             INT          NULL,
     [AttributeId]        INT          NULL,
     [StaminaCost]        INT          NULL,
+    [Description] VARCHAR(500) NULL, 
     PRIMARY KEY CLUSTERED ([AttributeSkillId] ASC),
     FOREIGN KEY ([AttributeId]) REFERENCES [dbo].[Attribute] ([AttributeId])
 );
