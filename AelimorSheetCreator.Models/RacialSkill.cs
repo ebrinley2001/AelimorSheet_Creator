@@ -15,6 +15,8 @@ namespace AelimorSheetCreator.Models
         public int XpCost { get; set; }
         public int RaceId { get; set; }
         public string Description { get; set; }
+        [Required]
+        public bool CombatSkill { get; set; }
 
         public virtual Race Race { get; set; }
     }

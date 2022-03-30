@@ -14,6 +14,8 @@ namespace AelimorSheetCreator.Models
         public int AttributeId { get; set; }
         public int StaminaCost { get; set; }
         public string Description { get; set; }
+        [Required]
+        public bool CombatSkill { get; set; }
 
         public virtual Attribute Attribute { get; set; }
     }

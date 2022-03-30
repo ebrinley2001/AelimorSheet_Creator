@@ -6,6 +6,7 @@
     [XpCost]          INT          NULL,
     [RaceId]          INT          NULL,
     [Description] VARCHAR(500) NULL, 
+    [CombatSkill] BIT NOT NULL, 
     PRIMARY KEY CLUSTERED ([RacialSkillId] ASC),
     FOREIGN KEY ([RaceId]) REFERENCES [dbo].[Race] ([RaceId])
 );
