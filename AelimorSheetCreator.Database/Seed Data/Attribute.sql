@@ -1,0 +1,37 @@
+set identity_insert Attribute on;
+
+insert into Attribute (AttributeId, AttributeName) values (1, 'Willful');
+insert into Attribute (AttributeId, AttributeName) values (2, 'Focused');
+insert into Attribute (AttributeId, AttributeName) values (3, 'Handy');
+insert into Attribute (AttributeId, AttributeName) values (4, 'Charismatic');
+insert into Attribute (AttributeId, AttributeName) values (5, 'Duplicitous');
+insert into Attribute (AttributeId, AttributeName) values (6, 'Enduring');
+insert into Attribute (AttributeId, AttributeName) values (7, 'Logical');
+insert into Attribute (AttributeId, AttributeName) values (8, 'Inquisitive');
+insert into Attribute (AttributeId, AttributeName) values (9, 'Brutal');
+insert into Attribute (AttributeId, AttributeName) values (10, 'Aggressive');
+insert into Attribute (AttributeId, AttributeName) values (11, 'Empathetic');
+insert into Attribute (AttributeId, AttributeName) values (12, 'Sharp Eyes');
+insert into Attribute (AttributeId, AttributeName) values (13, 'Diligent');
+insert into Attribute (AttributeId, AttributeName) values (14, 'Conniving');
+insert into Attribute (AttributeId, AttributeName) values (15, 'Dutiful');
+insert into Attribute (AttributeId, AttributeName) values (16, 'Steadfast');
+insert into Attribute (AttributeId, AttributeName) values (17, 'Conduit');
+insert into Attribute (AttributeId, AttributeName) values (18, 'Scholarly');
+insert into Attribute (AttributeId, AttributeName) values (19, 'Vital');
+insert into Attribute (AttributeId, AttributeName) values (20, 'Tough');
+insert into Attribute (AttributeId, AttributeName) values (21, 'Strong');
+insert into Attribute (AttributeId, AttributeName) values (22, 'Agile');
+insert into Attribute (AttributeId, AttributeName) values (23, 'Clairvoyant');
+insert into Attribute (AttributeId, AttributeName) values (24, 'Courageous');
+insert into Attribute (AttributeId, AttributeName) values (25, 'Altruistic');
+insert into Attribute (AttributeId, AttributeName) values (26, 'Stubborn');
+insert into Attribute (AttributeId, AttributeName) values (27, 'Swift');
+insert into Attribute (AttributeId, AttributeName) values (28, 'Calm');
+insert into Attribute (AttributeId, AttributeName) values (29, 'Shrewd');
+insert into Attribute (AttributeId, AttributeName) values (30, 'Patient');
+insert into Attribute (AttributeId, AttributeName) values (31, 'Inventive');
+insert into Attribute (AttributeId, AttributeName) values (32, 'Introspective');
+insert into Attribute (AttributeId, AttributeName) values (33, 'Capricious');
+	
+set identity_insert Attribute off;
