@@ -15,5 +15,8 @@ namespace AelimorSheetCreator.Models
         public string Description { get; set; }
         [Required]
         public bool Profession { get; set; }
+        public int BaseHp { get; set; }
+        public int BaseWearLimit { get; set; }
+        public int BaseNatArmor { get; set; }
     }
 }

@@ -61,11 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Skill.sql" />
-    <Build Include="dbo\Tables\RacialSkill.sql" />
     <Build Include="dbo\Tables\Race.sql" />
     <Build Include="dbo\Tables\Level.sql" />
     <Build Include="dbo\Tables\Class.sql" />
-    <Build Include="dbo\Tables\AttributeSkill.sql" />
     <Build Include="dbo\Tables\Attribute.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,8 @@ namespace AelimorSheetCreator.Models
         public int ClassId { get; set; }
         public int AttributeId { get; set; }
         public string Description { get; set; }
+        public int AttributeSkillId { get; set; }
+        public int RacialSkillId { get; set; }
 
         public virtual Class Class { get; set; }
         public virtual Attribute Attribute { get; set; }

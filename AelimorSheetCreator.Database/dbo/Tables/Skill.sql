@@ -9,9 +9,13 @@
     [ClassId]     INT          NULL,
     [AttributeId] INT          NULL,
     [Description] VARCHAR(500) NULL, 
+    [AttributeSkillId] INT NULL, 
+    [RacialSkillId] INT NULL, 
     PRIMARY KEY CLUSTERED ([SkillId] ASC),
     FOREIGN KEY ([AttributeId]) REFERENCES [dbo].[Attribute] ([AttributeId]),
-    FOREIGN KEY ([ClassId]) REFERENCES [dbo].[Class] ([ClassId])
+    FOREIGN KEY ([ClassId]) REFERENCES [dbo].[Class] ([ClassId]),
+    FOREIGN KEY (AttributeSkillId) REFERENCES [dbo].[Attribute] ([AttributeId]),
+    FOREIGN KEY ([RacialSkillId]) REFERENCES [dbo].[Race] ([RaceId])
 );
 
 
