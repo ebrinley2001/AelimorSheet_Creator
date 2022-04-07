@@ -1,11 +1,10 @@
-﻿using AelimorSheetCreator.BC.BuisinessComponents;
-using AelimorSheetCreator.Data;
-using AelimorSheetCreator.Data.Repository;
+﻿using AelimorSheetCreator.Data;
 using AelimorSheetCreator.Models;
+using EthanFramework.BC.BuisinessComponents;
 
 namespace AelimorSheetCreator.BC
 {
-    public class RaceBc : BaseEfBc<Race, AelimorContext>, IRaceBc
+    public class RaceBc : BaseEfBc<Race, IRaceRepository>, IRaceBc
     {
         public RaceBc(IRaceRepository repo) : base(repo)
         {

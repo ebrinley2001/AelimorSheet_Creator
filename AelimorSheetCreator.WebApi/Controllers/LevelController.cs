@@ -47,7 +47,7 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldLevel.LevelNum = newLevel.LevelNum;
                 oldLevel.XpAmount = newLevel.XpAmount;
                 oldLevel.BaseHp = newLevel.BaseHp;
-                oldLevel.BaseIncreaseStamina = newLevel.BaseIncreaseStamina;
+                oldLevel.BaseStamina = newLevel.BaseStamina;
                 oldLevel.AvailAttrib = newLevel.AvailAttrib;
                 oldLevel.AvailRoles = newLevel.AvailRoles;
 

@@ -1,13 +1,12 @@
-﻿using AelimorSheetCreator.BC.BuisinessComponents;
-using AelimorSheetCreator.Data;
-using AelimorSheetCreator.Data.Repository;
+﻿using AelimorSheetCreator.Data;
 using AelimorSheetCreator.Models;
+using EthanFramework.BC.BuisinessComponents;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.BC
 {
-    public class LevelBc : BaseEfBc<Level, AelimorContext>, ILevelBc
+    public class LevelBc : BaseEfBc<Level, ILevelRepository>, ILevelBc
     {
         private readonly ILevelRepository _repo;
 
@@ -28,7 +27,7 @@ namespace AelimorSheetCreator.BC
                 {
                     actualLevel = level;
                 }
-                else if (Xp !>= level.XpAmount)
+                else if (Xp! >= level.XpAmount)
                 {
                     break;
                 }

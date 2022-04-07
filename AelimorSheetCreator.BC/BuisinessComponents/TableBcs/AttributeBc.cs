@@ -1,11 +1,10 @@
-﻿using AelimorSheetCreator.BC.BuisinessComponents;
-using AelimorSheetCreator.Data;
-using AelimorSheetCreator.Data.Repository;
+﻿using AelimorSheetCreator.Data;
 using AelimorSheetCreator.Models;
+using EthanFramework.BC.BuisinessComponents;
 
 namespace AelimorSheetCreator.BC
 {
-    public class AttributeBc : BaseEfBc<Attribute, AelimorContext>, IAttributeBc
+    public class AttributeBc : BaseEfBc<Attribute, IAttributeRepository>, IAttributeBc
     {
         public AttributeBc(IAttributeRepository repo) : base(repo)
         {

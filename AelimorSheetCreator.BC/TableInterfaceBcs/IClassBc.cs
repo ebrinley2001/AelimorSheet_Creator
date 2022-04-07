@@ -1,9 +1,9 @@
-﻿using AelimorSheetCreator.Data.Repository;
-using AelimorSheetCreator.Models;
+﻿using AelimorSheetCreator.Models;
+using EthanFramework.BC;
 
 namespace AelimorSheetCreator.BC
 {
-    public interface IClassBc : IBaseEfBc<Class, AelimorContext>
+    public interface IClassBc : IBaseEfBc<Class>
     {
     }
 }
