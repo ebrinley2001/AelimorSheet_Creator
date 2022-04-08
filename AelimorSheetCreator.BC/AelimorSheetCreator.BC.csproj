@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EthanFramework.Bc" Version="2022.4.7.4" />
+    <PackageReference Include="EthanFramework.Bc" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
