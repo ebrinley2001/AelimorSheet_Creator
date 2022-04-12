@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 {
-    public class BaseValueRetrievalBc
+    public class CharacterValueRetrievalBc : ICharacterValueRetrievalBc
     {
         private readonly ILevelBc _levelBc;
         private readonly IRaceBc _raceBc;
@@ -11,7 +11,7 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
         private readonly ISkillBc _skillBc;
         private readonly IAttributeBc _attributeBc;
 
-        public BaseValueRetrievalBc(ILevelBc levelBc, IRaceBc raceBc, IClassBc classBc, ISkillBc skillBc, IAttributeBc attribute)
+        public CharacterValueRetrievalBc(ILevelBc levelBc, IRaceBc raceBc, IClassBc classBc, ISkillBc skillBc, IAttributeBc attribute)
         {
             _levelBc = levelBc;
             _raceBc = raceBc;
@@ -50,6 +50,11 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
             {
                 var skill = await _skillBc.GetByIdAsync(skillId.Value);
                 character.Skills.Add(skillId.Key, skill);
+
+                character.Hp += skill.Hp * skillId.Key;
+                character.Stamina += skill.Stamina * skillId.Key;
+                character.WearLimit += skill.WearLimit * skillId.Key;
+                character.NatArmor += skill.NatArmor * skillId.Key;
 
                 if (values.AttributeIds.Contains(skill.AttributeId))
                 {

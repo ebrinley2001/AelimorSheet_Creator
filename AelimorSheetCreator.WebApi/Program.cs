@@ -1,4 +1,5 @@
 using AelimorSheetCreator.BC;
+using AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation;
 using AelimorSheetCreator.Data;
 using AelimorSheetCreator.Data.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -25,6 +26,9 @@ builder.Services.AddScoped<IRaceBc, RaceBc>();
 
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 builder.Services.AddScoped<ISkillBc, SkillBc>();
+
+builder.Services.AddScoped<ICharacterValidationBc, CharacterValidationBc>();
+builder.Services.AddScoped<ICharacterValueRetrievalBc, CharacterValueRetrievalBc>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
