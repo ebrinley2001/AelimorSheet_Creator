@@ -45,7 +45,7 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 
                     foreach (var skill in characterValues.Skills)
                     { //Verifies that each skill with a ClassId, AttributeSkillId, Prereq, or RacialSkillId is met on the character
-                        if ((skill.Value.ClassId == 0 || classIds.Contains(skill.Value.ClassId)) && (skill.Value.AttributeSkillId == 0 || attributeIds.Contains(skill.Value.AttributeSkillId)) && (skill.Value.RacialSkillId == 0 || characterValues.Race.RaceId == skill.Value.RacialSkillId) && (skill.Value.Prereqs == 0 || skillIds.Contains(skill.Value.Prereqs)))
+                        if ((skill.Value.ClassId == null || classIds.Contains((int)skill.Value.ClassId)) && (skill.Value.AttributeSkillId == null || attributeIds.Contains((int)skill.Value.AttributeSkillId)) && (skill.Value.RacialSkillId == null || characterValues.Race.RaceId == skill.Value.RacialSkillId) && (skill.Value.Prereqs == null || skillIds.Contains((int)skill.Value.Prereqs)))
                         {
 
                             if (skill.Value.Limit != null) //Check if there is a limit on the skill
@@ -66,16 +66,16 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
                                     }
                                     else if (dependantAttribute == "L") //Check vs Level aka 13L or 1 per 3 levels 21L is 2 per 1 level
                                     {
-                                        if (skill.Key! <= amount * multiplier * characterValues.Level.LevelNum)
+                                        if (skill.Key! <= amount * multiplier / characterValues.Level.LevelNum)
                                         {
-                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier * characterValues.Level.LevelNum}: Level");
+                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier / characterValues.Level.LevelNum}: Level");
                                         }
                                     }
                                     else if (dependantAttribute == "H") // Check vs health aka 13H 1 per every 3 hp
                                     {
-                                        if (skill.Key! <= amount * multiplier * characterValues.Hp)
+                                        if (skill.Key! <= amount * multiplier / characterValues.Hp)
                                         {
-                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier * characterValues.Hp}: Level");
+                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier / characterValues.Hp}: Level");
                                         }
                                     }
                                 }
@@ -87,19 +87,19 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
                         }
                         else
                         {
-                            if (!classIds.Contains(skill.Value.ClassId))
+                            if (skill.Value.ClassId != null && !classIds.Contains((int)skill.Value.ClassId))
                             {
                                 throw new ArgumentException($"You do not have the required class {skill.Value.ClassId} to purchase this skill {skill.Value.SkillName}");
                             }
-                            else if (!attributeIds.Contains(skill.Value.AttributeSkillId))
+                            else if (skill.Value.AttributeSkillId != null && !attributeIds.Contains((int)skill.Value.AttributeSkillId))
                             {
                                 throw new ArgumentException($"You do not have the required attribute {skill.Value.AttributeSkillId} to purchase this skill {skill.Value.SkillName}");
                             }
-                            else if (characterValues.Race.RaceId != skill.Value.RacialSkillId)
+                            else if (skill.Value.RacialSkillId != null && characterValues.Race.RaceId != skill.Value.RacialSkillId)
                             {
                                 throw new ArgumentException($"You do not have the required race {skill.Value.RacialSkillId} to purchase this skill {skill.Value.SkillName}");
                             }
-                            else if (!skillIds.Contains(skill.Value.Prereqs))
+                            else if (skill.Value.Prereqs != null &&  !skillIds.Contains((int)skill.Value.Prereqs))
                             {
                                 throw new ArgumentException($"You do not have the required prerequisite skill {skill.Value.Prereqs} to purchase this skill {skill.Value.SkillName}");
                             }

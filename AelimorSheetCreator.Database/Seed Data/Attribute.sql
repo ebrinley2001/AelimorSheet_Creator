@@ -33,5 +33,6 @@ insert into Attribute (AttributeId, AttributeName) values (30, 'Patient');
 insert into Attribute (AttributeId, AttributeName) values (31, 'Inventive');
 insert into Attribute (AttributeId, AttributeName) values (32, 'Introspective');
 insert into Attribute (AttributeId, AttributeName) values (33, 'Capricious');
+insert into Attribute (AttributeId, AttributeName) values (34, 'Dexterous');
 	
 set identity_insert Attribute off;
