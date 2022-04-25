@@ -31,9 +31,13 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
             character.Race = await _raceBc.GetByIdAsync(values.RaceId);
             character.Level = characterLevel;
 
+            character.Hp = characterLevel.BaseHp;
+            character.Stamina = characterLevel.BaseStamina;
+
             foreach (var attributeId in values.AttributeIds)
             {
-                character.Attributes.Add(await _attributeBc.GetByIdAsync(attributeId));
+                var attribute = await _attributeBc.GetByIdAsync(attributeId);
+                character.Attributes.Add(attribute);
             }
 
             foreach (var classId in values.ClassIds)
@@ -48,22 +52,22 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 
             foreach (var skillId in values.SkillIds)
             {
-                var skill = await _skillBc.GetByIdAsync(skillId.Value);
-                character.Skills.Add(skillId.Key, skill);
+                Skill skill = await _skillBc.GetByIdAsync(skillId.Key);
+                character.Skills.Add(skill, skillId.Value);
 
-                character.Hp += skill.Hp * skillId.Key;
-                character.Stamina += skill.Stamina * skillId.Key;
-                character.WearLimit += skill.WearLimit * skillId.Key;
-                character.NatArmor += skill.NatArmor * skillId.Key;
+                character.Hp += skill.Hp * skillId.Value;
+                character.Stamina += skill.Stamina * skillId.Value;
+                character.WearLimit += skill.WearLimit * skillId.Value;
+                character.NatArmor += skill.NatArmor * skillId.Value;
 
                 if (skill.AttributeId != null && values.AttributeIds.Contains((int)skill.AttributeId) && skill.AttributeSkillId == null)
                 {
                     double discountedSkill = (double)skill.XpCost * .80;
-                    character.XpSpent += (int)discountedSkill;
+                    character.XpSpent += (int)discountedSkill * skillId.Value;
                 }
-                else if (skill.AttributeId != null && !values.AttributeIds.Contains((int)skill.AttributeId))
+                else
                 {
-                    character.XpSpent += skill.XpCost;
+                    character.XpSpent += skill.XpCost * skillId.Value;
                 }
             }
 

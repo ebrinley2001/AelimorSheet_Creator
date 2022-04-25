@@ -2,20 +2,20 @@
 
 namespace AelimorSheetCreator.Models
 {
-    public class Character
+    public class CharacterSheet
     {
         public string CharacterName { get; set; }
-        public Level Level { get; set; }
         public int XpTotal { get; set; }
         public int XpSpent { get; set; }
+        public int LevelNum { get; set; }
+        public string RaceName { get; set; }
+        public List<string> Classes { get; set; }
+        public List<string> Attributes { get; set; }
         public int Hp { get; set; }
         public int Stamina { get; set; }
         public int WearLimit { get; set; } = 15;
         public int NatArmor { get; set; } = 0;
-        public Race Race { get; set; }
-
-        public List<Attribute> Attributes = new List<Attribute>();
-        public List<Class> Classes = new List<Class>();
-        public Dictionary<Skill, int> Skills = new Dictionary<Skill, int>();
+        public Dictionary<string, int> Skills { get; set; }
     }
 }
+

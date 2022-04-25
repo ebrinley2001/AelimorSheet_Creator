@@ -16,9 +16,9 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 
         private Regex limitPattern = new Regex(@"(?<amount>\d)(?<multiplier>\d)(?<dependantAttribute>\w)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-        public void Validate(Character characterValues)
+        public string Validate(Character characterValues)
         {
-            if (characterValues.XpSpent! > characterValues.XpTotal && characterValues.Attributes.Count <= characterValues.Level.AvailAttrib) //Check the XpSpent vs XpTotal and the number of attributes you can buy vs the amount submitted
+            if (characterValues.XpSpent <= characterValues.XpTotal && characterValues.Attributes.Count <= characterValues.Level.AvailAttrib) //Check the XpSpent vs XpTotal and the number of attributes you can buy vs the amount submitted
             {
                 classCount = characterValues.Classes.Count; //Get Count of total classes
                 foreach (var characterClass in characterValues.Classes) //Seperate classes and Professions
@@ -37,7 +37,7 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
                 }
                 foreach (var characterSkill in characterValues.Skills) //Add SkillIds to list for use in skill validation
                 {
-                    skillIds.Add(characterSkill.Value.SkillId);
+                    skillIds.Add(characterSkill.Key.SkillId);
                 }
 
                 if (professionCount + classCount <= characterValues.Level.AvailRoles && classCount != characterValues.Level.AvailRoles) //Makes sure the profession slot is used and that the total avalible roles arent bypassed
@@ -45,12 +45,12 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 
                     foreach (var skill in characterValues.Skills)
                     { //Verifies that each skill with a ClassId, AttributeSkillId, Prereq, or RacialSkillId is met on the character
-                        if ((skill.Value.ClassId == null || classIds.Contains((int)skill.Value.ClassId)) && (skill.Value.AttributeSkillId == null || attributeIds.Contains((int)skill.Value.AttributeSkillId)) && (skill.Value.RacialSkillId == null || characterValues.Race.RaceId == skill.Value.RacialSkillId) && (skill.Value.Prereqs == null || skillIds.Contains((int)skill.Value.Prereqs)))
+                        if ((skill.Key.ClassId == null || classIds.Contains((int)skill.Key.ClassId)) && (skill.Key.AttributeSkillId == null || attributeIds.Contains((int)skill.Key.AttributeSkillId)) && (skill.Key.RacialSkillId == null || characterValues.Race.RaceId == skill.Key.RacialSkillId) && (skill.Key.Prereqs == null || skillIds.Contains((int)skill.Key.Prereqs)))
                         {
 
-                            if (skill.Value.Limit != null) //Check if there is a limit on the skill
+                            if (skill.Key.Limit != null) //Check if there is a limit on the skill
                             {
-                                var match = limitPattern.Match(skill.Value.Limit);
+                                var match = limitPattern.Match(skill.Key.Limit);
                                 if (match.Success) //Verify pattern match
                                 { //Deconstruct values
                                     string dependantAttribute = match.Groups["dependantAttribute"].Value;
@@ -59,67 +59,72 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 
                                     if (dependantAttribute == "T") //Check vs Total aka 11T or 1 total
                                     {
-                                        if (skill.Key! <= amount)
+                                        if (skill.Value > amount)
                                         {
-                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount}: Total");
+                                            return $"You cannot purchase {skill.Value} of {skill.Key.SkillName}. Your limit is {amount}: Total";
                                         }
                                     }
                                     else if (dependantAttribute == "L") //Check vs Level aka 13L or 1 per 3 levels 21L is 2 per 1 level
                                     {
-                                        if (skill.Key! <= amount * multiplier / characterValues.Level.LevelNum)
+                                        if (skill.Value > amount * multiplier / characterValues.Level.LevelNum)
                                         {
-                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier / characterValues.Level.LevelNum}: Level");
+                                            return $"You cannot purchase {skill.Value} of {skill.Key.SkillName}. Your limit is {amount * multiplier / characterValues.Level.LevelNum}: Level";
                                         }
                                     }
                                     else if (dependantAttribute == "H") // Check vs health aka 13H 1 per every 3 hp
                                     {
-                                        if (skill.Key! <= amount * multiplier / characterValues.Hp)
+                                        if (skill.Value > amount * multiplier / characterValues.Hp)
                                         {
-                                            throw new ArgumentException($"You cannot purchase {skill.Key} of {skill.Value.SkillName}. Your limit is {amount * multiplier / characterValues.Hp}: Level");
+                                            return $"You cannot purchase {skill.Value} of {skill.Key.SkillName}. Your limit is {amount * multiplier / characterValues.Hp}: Level";
                                         }
                                     }
                                 }
                                 else
                                 {
-                                    throw new ArgumentException($"Invalid REGEX limit expression {skill.Value.Limit}");
+                                    return $"Invalid REGEX limit expression {skill.Key.Limit} in skill {skill.Key.SkillName}";
                                 }
                             }
                         }
                         else
                         {
-                            if (skill.Value.ClassId != null && !classIds.Contains((int)skill.Value.ClassId))
+                            if (skill.Key.ClassId != null && !classIds.Contains((int)skill.Key.ClassId))
                             {
-                                throw new ArgumentException($"You do not have the required class {skill.Value.ClassId} to purchase this skill {skill.Value.SkillName}");
+                                return $"You do not have the required class {skill.Key.ClassId} to purchase this skill {skill.Key.SkillName}";
                             }
-                            else if (skill.Value.AttributeSkillId != null && !attributeIds.Contains((int)skill.Value.AttributeSkillId))
+                            else if (skill.Key.AttributeSkillId != null && !attributeIds.Contains((int)skill.Key.AttributeSkillId))
                             {
-                                throw new ArgumentException($"You do not have the required attribute {skill.Value.AttributeSkillId} to purchase this skill {skill.Value.SkillName}");
+                                return $"You do not have the required attribute {skill.Key.AttributeSkillId} to purchase this skill {skill.Key.SkillName}";
                             }
-                            else if (skill.Value.RacialSkillId != null && characterValues.Race.RaceId != skill.Value.RacialSkillId)
+                            else if (skill.Key.RacialSkillId != null && characterValues.Race.RaceId != skill.Key.RacialSkillId)
                             {
-                                throw new ArgumentException($"You do not have the required race {skill.Value.RacialSkillId} to purchase this skill {skill.Value.SkillName}");
+                                return $"You do not have the required race {skill.Key.RacialSkillId} to purchase this skill {skill.Key.SkillName}";
                             }
-                            else if (skill.Value.Prereqs != null &&  !skillIds.Contains((int)skill.Value.Prereqs))
+                            else if (skill.Key.Prereqs != null &&  !skillIds.Contains((int)skill.Key.Prereqs))
                             {
-                                throw new ArgumentException($"You do not have the required prerequisite skill {skill.Value.Prereqs} to purchase this skill {skill.Value.SkillName}");
+                                return $"You do not have the required prerequisite skill {skill.Key.Prereqs} to purchase this skill {skill.Key.SkillName}";
                             }
                         }
                     }
+                    return "Valid";
                 }
                 else
                 {
-                    throw new ArgumentException($"The amount of classes {characterValues.Classes.Count} you have selected is more than the amount avalible {characterValues.Level.AvailRoles}. Professions {professionCount}");
+                    return $"The amount of classes {characterValues.Classes.Count} you have selected is more than the amount avalible {characterValues.Level.AvailRoles}. Professions {professionCount}";
                 }
             }
             else
             {
                 if (characterValues.XpSpent > characterValues.XpTotal)
                 {
-                    throw new ArgumentException($"Your XpSpent {characterValues.XpSpent} is more than your XpTotal {characterValues.XpTotal}");
+                    return $"Your XpSpent {characterValues.XpSpent} is more than your XpTotal {characterValues.XpTotal}";
                 }
-                else if (characterValues.Attributes.Count <= characterValues.Level.AvailAttrib)
+                else if (characterValues.Attributes.Count > characterValues.Level.AvailAttrib)
                 {
-                    throw new ArgumentException($"The amount of attributes {characterValues.Attributes.Count} you have selected is is more than the amount avalible {characterValues.Level.AvailAttrib}");
+                    return $"The amount of attributes {characterValues.Attributes.Count} you have selected is is more than the amount avalible {characterValues.Level.AvailAttrib}";
+                }
+                else
+                {
+                    return "XpTotal / Attribute error";
                 }
 
             }
