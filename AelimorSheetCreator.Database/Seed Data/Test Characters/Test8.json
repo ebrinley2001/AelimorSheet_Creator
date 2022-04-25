@@ -1,0 +1,18 @@
+{
+  "characterName": "Thorn",
+  "xpTotal": 2677,
+  "raceId": 10,
+  "classIds": [
+    1,
+	4,
+	29
+  ],
+  "attributeIds": [
+    21
+  ],
+  "skillIds": {
+    "1": 3,
+    "1": 60,
+    "1": 66
+  }
+}

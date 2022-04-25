@@ -70,6 +70,7 @@ insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, Comb
 
 /* Class Skills*/
 
+/*Fighter*/
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (60, 'Strength', 700, null, null, '11T', 0, 1, 21, 'Deal X additional points of damage with all melee or thrown weapon attacks, where X is one half the user''s character level rounded up or 2, whichever is greater.', null, null, 0, 0, 0, 0);
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (61, 'Armor Training', 125, null, null, '21T', 1, 1, 22, 'For each buy, increase the Fighter''s Armor Wear Limit by 5 points.', null, null, 0, 0, 5, 0);
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (62, 'Warrior''s Spirit', 450, null, null, null, 0, 1, 6, 'You may spend 10 Staminia and increase your melee and thrown weapon damage by 1. So long as you do not recover that 10 Stamina, the damage remains. You may do this with your entire Stamina Pool but not with bonus or temporary Stamina points.', null, null, 0, 0, 0, 0);
@@ -79,6 +80,8 @@ insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, Comb
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (66, 'Parry', 350, '3', null, '11T', 1, 1, 34, 'When used, nagete the damage of any Weapon, Packet or Wave attack that deals X or less damage, where X = 10 * character level or X = 10 * Strength Check, whichever is higher. You must be Aware of the attack to Parry it.', null, null, 0, 0, 0, 0);
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (67, 'Critical Strike', 350, '4', null, '11T', 1, 1, 12, 'When used, double the damage dealt by the next weapon attack. Other modifiers are added up before doubleing. Great & larger weapons deal this effect for 3 Stamina.', null, null, 0, 0, 0, 0);
 insert into Skill (SkillId, SkillName, XpCost, StaminaCost, Prereqs, Limit, CombatSkill, ClassId, AttributeId, Description, AttributeSkillId, RacialSkillId, Hp, Stamina, WearLimit, NatArmor) values (68, 'Pommel Strke', 300, '4', 64, '11T', 0, 1, 9, 'Crushing Strike Knockback. Great & larger weapons deal this effect for 2 Stamina.', null, null, 0, 0, 0, 0);
+
+/*Rogue*/
 
 
 

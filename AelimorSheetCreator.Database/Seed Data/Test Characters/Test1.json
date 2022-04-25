@@ -1,0 +1,17 @@
+{
+  "characterName": "Craig",
+  "xpTotal": 1800,
+  "raceId": 7,
+  "classIds": [
+    1
+  ],
+  "attributeIds": [
+    9
+  ],
+  "skillIds": {
+    "2": 1,
+    "1": 20,
+    "1": 48,
+	"1": 60
+  }
+}

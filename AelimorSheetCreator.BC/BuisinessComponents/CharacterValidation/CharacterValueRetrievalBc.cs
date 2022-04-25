@@ -56,7 +56,7 @@ namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
                 character.WearLimit += skill.WearLimit * skillId.Key;
                 character.NatArmor += skill.NatArmor * skillId.Key;
 
-                if (skill.AttributeId != null && values.AttributeIds.Contains((int)skill.AttributeId))
+                if (skill.AttributeId != null && values.AttributeIds.Contains((int)skill.AttributeId) && skill.AttributeSkillId == null)
                 {
                     double discountedSkill = (double)skill.XpCost * .80;
                     character.XpSpent += (int)discountedSkill;
