@@ -21,8 +21,8 @@ steps:
   displayName: 'Restore'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
     feedsToUse: 'select'
+    vstsFeed: '1e894fa8-7c32-4214-a384-fd99071a7460/009e4db7-7031-477a-9064-c912a9f4cff2'
 
 - task: DotNetCoreCLI@2
   displayName: 'Build'
