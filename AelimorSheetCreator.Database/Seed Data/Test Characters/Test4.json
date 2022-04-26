@@ -1,0 +1,17 @@
+{
+  "characterName": "Jim",
+  "xpTotal": 1800,
+  "raceId": 7,
+  "classIds": [
+    1
+  ],
+  "attributeIds": [
+    9
+  ],
+  "skillIds": {
+    "1": 2,
+    "21": 1,
+    "48": 1,
+    "60": 1
+  }
+}

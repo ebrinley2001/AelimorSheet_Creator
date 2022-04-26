@@ -1,0 +1,19 @@
+{
+  "characterName": "Denis",
+  "xpTotal": 1800,
+  "raceId": 7,
+  "classIds": [
+    1,
+	2,
+	15
+  ],
+  "attributeIds": [
+    9
+  ],
+  "skillIds": {
+    "1": 2,
+    "20": 1,
+    "48": 1,
+    "60": 1
+  }
+}

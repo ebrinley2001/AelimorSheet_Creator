@@ -15,7 +15,7 @@ namespace AelimorSheetCreator.WebApi.Controllers
             _attributeBc = attributeBc;
         }
 
-        // GET: api/<AttributeController>s
+        // GET: api/<AttributeController>
         [HttpGet]
         public async Task<IEnumerable<Attribute>> Get()
         {

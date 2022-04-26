@@ -1,9 +1,9 @@
-﻿using AelimorSheetCreator.Data.Repository;
-using AelimorSheetCreator.Models;
+﻿using AelimorSheetCreator.Models;
+using EthanFramework.Data;
 
 namespace AelimorSheetCreator.Data
 {
-    public interface IAttributeRepository : IBaseEfRepository<Attribute, AelimorContext>
+    public interface IAttributeRepository : IBaseEfRepository<Attribute>
     {
     }
 }
