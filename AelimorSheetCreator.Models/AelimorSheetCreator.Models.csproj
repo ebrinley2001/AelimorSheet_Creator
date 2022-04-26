@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Authors>Ethan Brinley</Authors>
+	  <Version>1.0.0</Version>
+	  <Description>
+		  Models for use with the AelimorSheetCreator Project
+	  </Description>
   </PropertyGroup>
 
   <ItemGroup>
