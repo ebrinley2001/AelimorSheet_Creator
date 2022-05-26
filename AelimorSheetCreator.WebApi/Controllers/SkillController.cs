@@ -52,6 +52,13 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldSkill.CombatSkill = newSkill.CombatSkill;
                 oldSkill.ClassId = newSkill.ClassId;
                 oldSkill.AttributeId = newSkill.AttributeId;
+                oldSkill.Description = newSkill.Description;
+                oldSkill.AttributeSkillId = newSkill.AttributeSkillId;
+                oldSkill.RacialSkillId = newSkill.RacialSkillId;
+                oldSkill.Hp = newSkill.Hp;
+                oldSkill.Stamina = newSkill.Stamina;
+                oldSkill.WearLimit = newSkill.WearLimit;
+                oldSkill.NatArmor = newSkill.NatArmor;
 
                 return await _skillBc.UpdateAsync(oldSkill);
             }

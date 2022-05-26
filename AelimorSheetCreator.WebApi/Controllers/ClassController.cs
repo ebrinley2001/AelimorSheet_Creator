@@ -47,10 +47,15 @@ namespace AelimorSheetCreator.WebApi.Controllers
                 oldClass.ClassName = newClass.ClassName;
                 oldClass.BaseStamina = newClass.BaseStamina;
                 oldClass.WeaponProf = newClass.WeaponProf;
+                oldClass.Description = newClass.Description;
+                oldClass.Profession = newClass.Profession;
+                oldClass.BaseHp = newClass.BaseHp;
+                oldClass.BaseWearLimit = newClass.BaseWearLimit;                
+                oldClass.BaseNatArmor = newClass.BaseNatArmor;
 
                 return await _classBc.UpdateAsync(oldClass);
             }
-            return 0;
+            return 400;
         }
 
         // DELETE api/<ClassController>/5
