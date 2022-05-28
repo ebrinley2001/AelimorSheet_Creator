@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 {
+    //todo: REFACTOR
     public class CharacterValueRetrievalBc : ICharacterValueRetrievalBc
     {
         private readonly ILevelBc _levelBc;

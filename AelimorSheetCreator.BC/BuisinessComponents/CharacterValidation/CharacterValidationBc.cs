@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace AelimorSheetCreator.BC.BuisinessComponents.CharacterValidation
 {
+    //todo: REFACTOR
     public class CharacterValidationBc : ICharacterValidationBc
     {
         private int professionCount = 0;
